@@ -7,7 +7,8 @@ return {
         configs.setup({
             ensure_installed = {
                 "lua",
-                "c"
+                "c",
+                "markdown"
             },
             sync_install = true,
             highlight = { enable = true },
