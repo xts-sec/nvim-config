@@ -10,9 +10,10 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = {
-                    "lua_ls",
-                    "clangd",
-                    "marksman" -- new
+                    "lua_ls", -- lua
+                    "clangd", -- c
+                    "marksman", -- markdown
+                    "jedi_language_server" -- python
                 }
             })
         end
@@ -21,9 +22,10 @@ return {
         "neovim/nvim-lspconfig",
         config = function()
             local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup({})
-            lspconfig.clangd.setup({})
-            lspconfig.marksman.setup({})
+            lspconfig.lua_ls.setup({}) -- lua
+            lspconfig.clangd.setup({}) -- c
+            lspconfig.marksman.setup({}) -- markdown
+            lspconfig.jedi_language_server.setup({}) -- python
 
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
