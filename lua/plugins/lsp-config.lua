@@ -7,25 +7,21 @@ return {
     },
     {
         "williamboman/mason-lspconfig.nvim",
-        config = function()
-            require("mason-lspconfig").setup({
-                ensure_installed = {
-                    "lua_ls", -- lua
-                    "clangd", -- c
-                    "marksman", -- markdown
-                    "jedi_language_server", -- python
-                },
-            })
-        end,
+        opts = {
+            auto_install = true,
+        },
     },
     {
         "neovim/nvim-lspconfig",
         config = function()
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
             local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup({})      -- lua
-            lspconfig.clangd.setup({})      -- c
-            lspconfig.marksman.setup({})    -- markdown
-            lspconfig.jedi_language_server.setup({}) -- python
+
+            lspconfig.lua_ls.setup({ capabilities = capabilities })      -- lua
+            lspconfig.clangd.setup({ capabilities = capabilities })      -- c
+            lspconfig.marksman.setup({ capabilities = capabilities })    -- markdown
+            lspconfig.jedi_language_server.setup({ capabilities = capabilities }) -- python
 
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
