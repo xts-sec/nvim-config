@@ -5,7 +5,7 @@ vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 
 -- line numbers
-vim.cmd("set number")
+vim.cmd("set relativenumber")
 
 -- leader key
 vim.g.mapleader = " "

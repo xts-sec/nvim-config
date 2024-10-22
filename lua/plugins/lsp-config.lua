@@ -22,6 +22,7 @@ return {
 			lspconfig.clangd.setup({ capabilities = capabilities }) -- c
 			lspconfig.marksman.setup({ capabilities = capabilities }) -- markdown
 			lspconfig.jedi_language_server.setup({ capabilities = capabilities }) -- python
+            lspconfig.templ.setup({ capabilities = capabilities })
 
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
